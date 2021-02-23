@@ -85,7 +85,7 @@ Code snippet:
 
 |  Day | Deliverable | Status
 |---|---| ---|
-|Feb 22-23| Prompt / Wireframes / Priority Matrix / Timeframes | Incomplete
+|Feb 22-23| Prompt / Wireframes / Priority Matrix / Timeframes | Complete
 |Feb 23| Project Approval / Create HTML, CSS, and JS files| Incomplete
 |Feb 24| API calls functioning, logging to console | Incomplete
 |Feb 25| API calls rendering to DOM / Basic CSS  | Incomplete
