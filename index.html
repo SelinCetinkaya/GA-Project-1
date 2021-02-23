@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script defer src="./app.js"></script>
+  <title>Recipe Finder</title>
+</head>
+<body>
+  <h1>Recipe Finder</h1>
+  <!-- <img src="" alt="food"> -->
+  <div class="recipe-search">
+    <div class="name-search">
+      <input type="text" id="blank" placeholder="Name of Recipe">
+      <button id="search">Search</button>
+    </div>
+    <form class="category-search">
+      <select name="category">
+        <option disabled selected>CHOOSE A CATEGORY</option>
+      </select>
+      <button type="submit">Search</button>
+    </form>
+    <button id="random">Random Recipe!</button>
+  </div>
+  <div class="search-results">
+
+  </div>
+
+</body>
+</html>
