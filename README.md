@@ -111,7 +111,6 @@ Code snippet:
 | Responsive Design | H | 3hrs| hrs | hrs |
 | Advanced CSS / Animations/Transitions | M | 4hrs| hrs | hrs |
 | Clear Previous Results | M | 2hrs| hrs | hrs |
-
 | Total |  | 37hrs| hrs | hrs |
 
 ## Code Snippet
