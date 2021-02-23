@@ -102,7 +102,7 @@ Code snippet:
 | --- | :---: |  :---: | :---: | :---: |
 | Adding Random Food Image | L | 3hrs| hrs | hrs |
 | Input Form | H | 3hrs| hrs | hrs |
-| Dropdown Menu | H | 3hrs| hrs | hrs |
+| Dropdown Menu | H | 3hrs| 2hrs | hrs |
 | Food Name API Call | H | 3hrs| hrs | hrs |
 | Food Category API Call | H | 4hrs| hrs | hrs |
 | Random Recipe button/API Call | H | 3hrs| hrs | hrs |
