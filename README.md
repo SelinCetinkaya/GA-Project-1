@@ -105,7 +105,7 @@ Code snippet:
 | Dropdown Menu | H | 3hrs| 2hrs | hrs |
 | Food Name API Call | H | 3hrs| hrs | hrs |
 | Food Category API Call | H | 4hrs| hrs | hrs |
-| Random Recipe button/API Call | H | 3hrs| hrs | hrs |
+| Random Recipe button/API Call | H | 3hrs| 1hrs | hrs |
 | Append Recipe to DOM | H | 4hrs| hrs | hrs |
 | Basic CSS | H | 5hrs| hrs | hrs |
 | Responsive Design | H | 3hrs| hrs | hrs |
