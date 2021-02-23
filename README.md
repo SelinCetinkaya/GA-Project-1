@@ -72,6 +72,7 @@ Code snippet:
 - Category API call will grab recipe names and do another API call for the names of those recipes
 - Allow user to recieve a random recipe
 - Clear previous recipe when searching for a new recipe
+- Designed for desktop and smartphone sizes
 
 #### PostMVP  
 
