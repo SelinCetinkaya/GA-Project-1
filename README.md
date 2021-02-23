@@ -107,11 +107,12 @@ Code snippet:
 | Food Category API Call | H | 4hrs| hrs | hrs |
 | Random Recipe button/API Call | H | 3hrs| hrs | hrs |
 | Append Recipe to DOM | H | 4hrs| hrs | hrs |
-| Basic CSS | H | 3hrs| hrs | hrs |
+| Basic CSS | H | 5hrs| hrs | hrs |
+| Responsive Design | H | 3hrs| hrs | hrs |
 | Advanced CSS / Animations/Transitions | M | 4hrs| hrs | hrs |
-| Clear Previous Results | M | 1hrs| hrs | hrs |
-| Full Recipe button | L | 3hrs| hrs | hrs |
-| Total |  | 34hrs| hrs | hrs |
+| Clear Previous Results | M | 2hrs| hrs | hrs |
+
+| Total |  | 37hrs| hrs | hrs |
 
 ## Code Snippet
 
