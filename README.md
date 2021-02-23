@@ -69,10 +69,9 @@ Code snippet:
 - Find and use 1 external api to fetch recipe name and category
 - Allow user to search recipes by name of recipe (input)
 - Allow user to search recipes by category (dropdown)
-- Category API call will grab recipe names and do another API call for the names of those recipes
 - Allow user to recieve a random recipe
 - Clear previous recipe when searching for a new recipe
-- Designed for desktop and smartphone sizes
+- Design for desktop and smartphone sizes
 
 #### PostMVP  
 
@@ -80,6 +79,7 @@ Code snippet:
 - Second api to generate random food image at top of the page on load
 - User can choose to keep the previously searched recipe on the page while searching for/listing more
 - Animations
+- Category API call will grab IDs and do another API call for the full recipe information
 
 ## Project Schedule
 
