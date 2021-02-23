@@ -1,4 +1,4 @@
-# GA-Project-1
+# Recipe Finder
 
 # Project Overview
 
@@ -8,7 +8,7 @@ The name of your project with deployed URL.
 
 ## Project Description
 
-Easily search The Meal DB for recipes by meal name and category. Additionally, users can generate a random recipe. The search will result in a the title of the recipe(s), area the recipe is from, the category, a photo, and the full recipe ingredients and directions.
+Can't decide what to cook for dinner? Bored of your cookbooks? Stuck in a cooking rut? Easily search The Meal DB for recipes by meal name and category. Additionally, users can generate a random recipe. The search will result in a the title of the recipe(s), area the recipe is from, the category, a photo, and the full recipe ingredients and directions.
 
 ## API and Data Sample
 
