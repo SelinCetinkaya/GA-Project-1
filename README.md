@@ -8,13 +8,13 @@ Recipe Finder
 
 ## Project Description
 
-Can't decide what to cook for dinner? Bored of your cookbooks? Stuck in a cooking rut? Easily search The Meal DB for recipes by meal name and category. Additionally, users can generate a random recipe. The search will result in a the title of the recipe(s), area the recipe is from, the category, a photo, and the full recipe ingredients and directions.
+Can't decide what to cook for dinner? Bored of your cookbooks? Stuck in a cooking rut? With Recipe Finder, users can easily search The Meal DB for recipes by meal name and category. Additionally, users can generate a random recipe. The search will result in a the title of the recipe(s), area the recipe is from, the category, a photo, and the full recipe ingredients and directions.
 
 ## API and Data Sample
 
 The Meal DB
 https://www.themealdb.com/api.php
-Code snippet:
+Code snippet (by recipe name):
 
 ```{
     "meals": [
@@ -29,13 +29,23 @@ Code snippet:
             "strTags": "Pasta,Curry",
             "strYoutube": "https://www.youtube.com/watch?v=1IszT_guI08",
             "strIngredient1": "penne rigate",
-            "strIngredient2": "olive oil",
-            "strIngredient3": "garlic",
-            "strIngredient4": "chopped tomatoes",
-            "strIngredient5": "red chile flakes",
-            "strIngredient6": "italian seasoning",
-            "strIngredient7": "basil",
-            "strIngredient8": "Parmigiano-Reggiano",
+```
+The Meal DB
+https://www.themealdb.com/api.php
+Code snippet (by recipe category):
+```
+{
+    "meals": [
+        {
+            "strMeal": "Baked salmon with fennel & tomatoes",
+            "strMealThumb": "https://www.themealdb.com/images/media/meals/1548772327.jpg",
+            "idMeal": "52959"
+        },
+        {
+            "strMeal": "Cajun spiced fish tacos",
+            "strMealThumb": "https://www.themealdb.com/images/media/meals/uvuyxu1503067369.jpg",
+            "idMeal": "52819"
+        },
 ```
 
 Foodish random food photo API
@@ -56,8 +66,7 @@ Code snippet:
 
 #### MVP 
 
-- Find and use 2 external apis
-- Render random food image on page load
+- Find and use 1 external api to fetch recipe name and category
 - Allow user to search recipes by name of recipe (input)
 - Allow user to search recipes by category (dropdown)
 - Category API call will grab recipe names and do another API call for the names of those recipes
@@ -67,6 +76,7 @@ Code snippet:
 #### PostMVP  
 
 - Full recipe hidden until user clicks a "view full recipe" button
+- Second api to generate random food image at top of the page on load
 - User can choose to keep the previously searched recipe on the page while searching for/listing more
 - Animations
 
@@ -83,32 +93,27 @@ Code snippet:
 
 ## Priority Matrix
 
-[Priority Matrix](https://lucid.app/lucidchart/invitations/accept/f750c208-638c-47cc-acc3-f4e772128670)
+[Priority Matrix](https://lucid.app/lucidchart/invitations/accept/de05d9c2-ac7c-4925-9260-a697f7fcff41)
 
 ## Timeframes
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Adding Random Food Image | H | 3hrs| hrs | hrs |
+| Adding Random Food Image | L | 3hrs| hrs | hrs |
 | Input Form | H | 3hrs| hrs | hrs |
 | Dropdown Menu | H | 3hrs| hrs | hrs |
 | Food Name API Call | H | 3hrs| hrs | hrs |
 | Food Category API Call | H | 4hrs| hrs | hrs |
+| Random Recipe button/API Call | H | 3hrs| hrs | hrs |
 | Append Recipe to DOM | H | 4hrs| hrs | hrs |
 | Basic CSS | H | 3hrs| hrs | hrs |
-| Advanced CSS | H | 4hrs| hrs | hrs |
-| Clear Previous | H | 1hrs| hrs | hrs |
-| Full Recipe button | H | 3hrs| hrs | hrs |
-| Total | H | 31hrs| hrs | hrs |
+| Advanced CSS | M | 4hrs| hrs | hrs |
+| Clear Previous | M | 1hrs| hrs | hrs |
+| Full Recipe button | L | 3hrs| hrs | hrs |
+| Total |  | 34hrs| hrs | hrs |
 
 ## Code Snippet
 
-
-```
-function reverse(string) {
-	// here is the code to reverse a string of text
-}
-```
 
 ## Change Log
  Use this section to document what changes were made and the reasoning behind those changes.  
