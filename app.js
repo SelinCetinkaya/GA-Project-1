@@ -1,3 +1,6 @@
+
+
+
 //=========================================
 //Search by name 
 //=========================================
@@ -19,6 +22,7 @@ async function getRecipeName(input) {
 
 function getNameValue(e) {
   e.preventDefault
+  removeRecipes()
   const inputValue = document.querySelector('#input').value
   getRecipeName(inputValue)
 }
@@ -57,7 +61,7 @@ function optionValue(categoryList) {
 
 function getCat(e) {
   e.preventDefault()
-  //remove data
+  removeRecipes()
   const categoryValue = document.querySelector('#category').value
   getCategoryItems(categoryValue)
 }
@@ -90,7 +94,7 @@ categoryForm.addEventListener('submit', getCat)
 
 function getRandom(e) {
   e.preventDefault()
-  //remove data
+  removeRecipes()
   randomRecipe()
 }
 
@@ -117,10 +121,21 @@ randomButton.addEventListener('click', getRandom)
 
 function appendRecipe(title, imgSRC) {
   let recipe =
-    `<div class="recipe-element>"
-      <h3 class="title">${title}</h3>
-      <img class="image" src="${imgSRC}" alt="recipe-image"/>
+    `<div class='recipe-element'>
+      <h4 class='title'>${title}</h4>
+      <img class='image' src="${imgSRC}" alt="recipe-image"/>
     </div>`
   document.querySelector('.search-results').insertAdjacentHTML('beforeend', recipe)
 }
 
+
+//========================================
+//Remove
+//========================================
+
+function removeRecipes() {
+  const remove = document.querySelector('.search-results')
+  while (remove.lastChild) {
+    remove.removeChild(remove.lastChild)
+  }
+}

@@ -1,4 +1,27 @@
 .image {
   width: 200px;
-  height: auto;
+  height: 200px;
+}
+
+.recipe-element {
+  /* border: solid black 2px; */
+  display: flex;
+  flex-direction: column;
+  max-width: 200px;
+  margin: 15px;
+}
+
+.search-results {
+  /* border: solid black 2px; */
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+h4 {
+  display: flex;
+  margin: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
