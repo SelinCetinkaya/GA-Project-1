@@ -6,8 +6,10 @@ async function getRecipeName(input) {
   const nameEndpoint = `https://www.themealdb.com/api/json/v1/1/search.php?s=${input}`
   try {
     const response = await axios.get(nameEndpoint)
-    //append data to dom
-    console.log(response.data.meals)
+    const mealsArr = response.data.meals
+    mealsArr.forEach(meal => {
+      appendRecipe(meal.strMeal, meal.strMealThumb)
+    });
     return response
   } catch (err) {
     console.error(err)
@@ -25,7 +27,7 @@ const nameForm = document.querySelector('#search')
 nameForm.addEventListener('click', getNameValue)
 
 //==========================================
-//Categories Dropdown
+//Categories search dropdown
 //==========================================
 
 
@@ -62,10 +64,17 @@ function getCat(e) {
 
 async function getCategoryItems(category) {
   const categoryItemUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`
+  // const idUrl = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
   try {
-    const reseponse = await axios.get(categoryItemUrl)
+    const response = await axios.get(categoryItemUrl)
+    const categoriesArr = response.data.meals
+    categoriesArr.forEach(meal => {
+      appendRecipe(meal.strMeal, meal.strMealThumb)
+    });
+    // categoriesArr.forEach(meal => {
+    //   console.log(meal.idMeal)
+    // });
     //append data here
-    console.log(reseponse.data.meals)
   } catch (err) {
     console.error(err)
   }
@@ -89,7 +98,9 @@ async function randomRecipe() {
   const randomUrl = 'https://www.themealdb.com/api/json/v1/1/random.php'
   try {
     const response = await axios.get(randomUrl)
-    console.log(response.data.meals)
+    const random = response.data.meals
+    console.log(random)
+    appendRecipe(random[0].strMeal, random[0].strMealThumb)
     return response
     // appendRecipe()
   } catch (err) {
@@ -99,4 +110,17 @@ async function randomRecipe() {
 const randomButton = document.querySelector('#random')
 randomButton.addEventListener('click', getRandom)
 
+
+//==================================
+//Append
+//==================================
+
+function appendRecipe(title, imgSRC) {
+  let recipe =
+    `<div class="recipe-element>"
+      <h3 class="title">${title}</h3>
+      <img class="image" src="${imgSRC}" alt="recipe-image"/>
+    </div>`
+  document.querySelector('.search-results').insertAdjacentHTML('beforeend', recipe)
+}
 
