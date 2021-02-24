@@ -101,16 +101,16 @@ Code snippet:
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
 | Adding Random Food Image | L | 3hrs| hrs | hrs |
-| Input Form | H | 3hrs| hrs | hrs |
+| Input Form | H | 3hrs| 3hrs | hrs |
 | Dropdown Menu | H | 3hrs| 2hrs | hrs |
 | Food Name API Call | H | 3hrs| 2hrs | hrs |
-| Food Category API Call | H | 4hrs| hrs | hrs |
+| Food Category API Call | H | 4hrs| 2.5hrs | hrs |
 | Random Recipe button/API Call | H | 3hrs| 3hrs | hrs |
-| Append Recipe to DOM | H | 4hrs| hrs | hrs |
-| Basic CSS | H | 5hrs| hrs | hrs |
+| Append Recipe to DOM | H | 4hrs| 2.5hrs | hrs |
+| Basic CSS | H | 5hrs| 1hrs | hrs |
 | Responsive Design | H | 3hrs| hrs | hrs |
 | Advanced CSS / Animations/Transitions | M | 4hrs| hrs | hrs |
-| Clear Previous Results | M | 2hrs| hrs | hrs |
+| Clear Previous Results | M | 2hrs| 1hrs | hrs |
 | Total |  | 37hrs| hrs | hrs |
 
 ## Code Snippet
