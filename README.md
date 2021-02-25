@@ -86,9 +86,9 @@ Code snippet:
 |  Day | Deliverable | Status
 |---|---| ---|
 |Feb 22-23| Prompt / Wireframes / Priority Matrix / Timeframes | Complete
-|Feb 23| Project Approval / Create HTML, CSS, and JS files| Incomplete
-|Feb 24| API calls functioning, logging to console | Incomplete
-|Feb 25| API calls rendering to DOM / Basic CSS  | Incomplete
+|Feb 23| Project Approval / Create HTML, CSS, and JS files| Complete
+|Feb 24| API calls functioning, logging to console | Complete
+|Feb 25| API calls rendering to DOM / Basic CSS  | Complete
 |Feb 26| PostMVP / More Advanced CSS| Incomplete
 |March 1| Presentations | Incomplete
 
@@ -107,9 +107,9 @@ Code snippet:
 | Food Category API Call | H | 4hrs| 2.5hrs | hrs |
 | Random Recipe button/API Call | H | 3hrs| 3hrs | hrs |
 | Append Recipe to DOM | H | 4hrs| 2.5hrs | hrs |
-| Basic CSS | H | 5hrs| 1hrs | hrs |
+| Basic CSS | H | 5hrs| 5hrs | hrs |
 | Responsive Design | H | 3hrs| hrs | hrs |
-| Advanced CSS / Animations/Transitions | M | 4hrs| hrs | hrs |
+| Advanced CSS / Animations/Transitions | M | 4hrs| 1hrs | hrs |
 | Clear Previous Results | M | 2hrs| 1hrs | hrs |
 | Total |  | 37hrs| hrs | hrs |
 
