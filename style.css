@@ -14,10 +14,11 @@ h1 {
   font-size: 50px;
 }
 
-.image {
-  width: 200px;
-  height: 200px;
+p {
+  font-size: 20px;
+  margin-top: 20px;
 }
+
 
 body {
   font-family: 'Mukta', sans-serif;
@@ -74,6 +75,7 @@ button:hover {
   background-color: rgb(194, 194, 239);
   border-radius: 10%;
   border: solid rgb(177, 177, 177) 1px;
+  font-size: 15px;
 }
 #categories {
   margin-right: 10px;
@@ -81,6 +83,10 @@ button:hover {
 
 hr {
   width: 90%;
+}
+
+#random {
+  width: 150px;
 }
 /* ========================================================== */
 /* Search Results */
@@ -117,3 +123,8 @@ h4 {
   margin-right: 5px;;
 }
 
+
+.image {
+  width: 200px;
+  height: 200px;
+}

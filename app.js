@@ -41,7 +41,7 @@ function getNameValue(e) {
   removeRecipes()
   let inputValue = document.querySelector('#input').value
   getRecipeName(inputValue)
-  inputValue = ''
+  document.querySelector('#input').value = ""
   console.log(inputValue)
 }
 
@@ -84,6 +84,7 @@ function getCat(e) {
   removeRecipes()
   const categoryValue = document.querySelector('#categories').value
   getCategoryItems(categoryValue)
+  document.querySelector('#categories').value = 'Choose a Category'
 }
 
 async function getCategoryItems(category) {
@@ -121,6 +122,7 @@ async function randomRecipe() {
     const random = response.data.meals
     // console.log(random)
     appendRecipe(random[0])
+    console.log(response)
     return response
     // appendRecipe()
   } catch (err) {
@@ -149,11 +151,14 @@ async function getFullRecipe(id) {
 async function redirectToRecipe(meal) {
   // console.log(meal.idMeal)
   const source = meal.strSource || await getFullRecipe(meal.idMeal)
-  const element = document.createElement('a')
-  element.setAttribute('target', '_blank')
-  element.setAttribute('href', source)
-  console.log(element)
-  element.click()
+  if (!source) {
+    alertFullRecipe(meal.idMeal)
+  } else {
+    const element = document.createElement('a')
+    element.setAttribute('target', '_blank')
+    element.setAttribute('href', source)
+    element.click()
+  }
 }
 
 async function appendRecipe(meal) {
@@ -184,4 +189,38 @@ function removeRecipes() {
   while (remove.lastChild) {
     remove.removeChild(remove.lastChild)
   }
+}
+
+//=================================================
+//No Recipe Source
+//=================================================
+
+async function alertFullRecipe(id) {
+  const instructionsUrl = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
+  try {
+    const response = await axios.get(instructionsUrl)
+    const meal = response.data.meals[0]
+    const name = meal.strMeal
+    const instructions = meal.strInstructions
+    const recipe = `Oh no! It looks like there is no link for the ${name} recipe! Here are the recipe details. Bon appetit!
+Ingredients:
+${getIngredientList(meal)}
+${instructions}`
+    alert(recipe)
+  }
+  catch (err) {
+    console.error(err)
+  }
+}
+
+function getIngredientList(meal) {
+  let str = ''
+  for (let i = 0; i < 21; i++) {
+    const ingredient = meal[`strIngredient${i + 1}`]
+    const measurement = meal[`strMeasure${i + 1}`]
+    if (ingredient && measurement) {
+      str = str.concat(`${measurement} ${ingredient} \n`)
+    }
+  }
+  return str
 }
