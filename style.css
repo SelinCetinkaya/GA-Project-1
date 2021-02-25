@@ -1,7 +1,90 @@
+/* ================================================= */
+/* Header and search options */
+/* ================================================= */
+
+header {
+  /* border: solid black 2px; */
+  /* background-color: #726782b6; */
+}
+
+h1 {
+  margin: 0;
+  color: rgb(40, 50, 22);
+  font-family: 'Oswald', sans-serif;
+  font-size: 50px;
+}
+
 .image {
   width: 200px;
   height: 200px;
 }
+
+body {
+  font-family: 'Mukta', sans-serif;
+  background-color: rgb(230, 230, 230);
+  margin: 15px;
+}
+
+#header-image {
+  max-height: 200px;
+  max-width: fit-content;
+  width: auto;
+  height: auto;
+  /* margin: 50px; */
+  justify-items: center;
+  display: none;
+}
+
+.search-option {
+  /* border: solid black 2px; */
+  margin: 10px;
+}
+
+#input, #categories {
+  width: 250px;
+  height: 30px;
+}
+
+.recipe-search {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  /* border: solid black 2px; */
+}
+form {
+  justify-content: center;
+}
+
+#category-search {
+  display: flex;
+  padding: 2px;
+}
+
+button {
+  font-family: inherit;
+}
+
+button:hover {
+  background-color: rgb(156, 156, 195);
+  cursor: pointer;
+}
+
+.search-button {
+  background-color: rgb(194, 194, 239);
+  border-radius: 10%;
+  border: solid rgb(177, 177, 177) 1px;
+}
+#categories {
+  margin-right: 10px;
+}
+
+hr {
+  width: 90%;
+}
+/* ========================================================== */
+/* Search Results */
+/* ========================================================== */
 
 .recipe-element {
   /* border: solid black 2px; */
@@ -17,6 +100,8 @@
   flex-flow: row wrap;
   justify-content: space-around;
   align-items: flex-end;
+  font-size: 20px;
+  /* border-top: solid grey 1px; */
 }
 
 h4 {
@@ -24,4 +109,11 @@ h4 {
   margin: 10px;
   justify-content: center;
   flex-wrap: wrap;
+  text-align: center;
+  text-decoration: underline;
 }
+
+#input {
+  margin-right: 5px;;
+}
+
