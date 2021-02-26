@@ -39,7 +39,6 @@ function getNameValue(e) {
   let inputValue = document.querySelector('#input').value
   getRecipeName(inputValue)
   document.querySelector('#input').value = ""
-  console.log(inputValue)
 }
 
 const nameForm = document.querySelector('#search')
@@ -98,6 +97,7 @@ const categoryForm = document.querySelector('#category-search')
 categoryForm.addEventListener('submit', getCat)
 
 //========================= Modal stuff
+//https://www.w3schools.com/howto/howto_css_modals.asp
 
 const modal = document.querySelector('#my-modal')
 const closeButton = document.querySelector('#close-button')
@@ -164,6 +164,7 @@ async function appendRecipe(meal) {
     <button onclick="showFullRecipe(${id})">View Recipe</button>
     </div>`
   document.querySelector('.search-results').insertAdjacentHTML('beforeend', recipe)
+  document.querySelector('.search-results').scrollIntoView()
 }
 
 //========================================
@@ -191,7 +192,7 @@ async function showFullRecipe(id) {
 ${getIngredientList(meal)}
 
 <br/>${instructions}
-<br/>${source ? `<a target='_blank' href='${source}'>show</a>` : 'source not available'}`
+<br/>${source ? `<a target='_blank' href='${source}'>Show recipe source.</a>` : 'Source not available.'}`
     const modal = document.querySelector('#my-modal')
     const content = document.querySelector('#recipe-content')
     content.innerHTML = recipe

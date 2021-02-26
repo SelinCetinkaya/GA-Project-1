@@ -19,23 +19,29 @@
   </header>
   <h2>Here is some header about the website</h2>
   <div class="recipe-search">
-    <p>Do you know the name of the dish you want to cook? Search it here!</p>
-    <div class="search-option" id="name-search">
-      <input type="text" id="input" placeholder="Name of Recipe">
-      <button class="search-button" type="submit" id="search">Search</button>
+    <div class="search-element" id="name-element">
+      <p>Do you know the name of the dish you want to cook? <br> Search it here!</p>
+      <div class="search-option" id="name-search">
+        <input type="text" id="input" placeholder="Name of Recipe">
+        <button class="search-button" type="submit" id="search">Search</button>
+      </div>
     </div>
     <hr>
-    <p>Do you know what type of recipe you want but haven't settled on a recipe? <br> Search by category here!</p>
-    <form class="search-option" id="category-search">
-      <select class="recipe-search" id="categories">
-        <option disabled selected>Choose a Category</option>
-      </select>
-      <button class="search-button" type="submit" id="category-button">Search</button>
-    </form>
+    <div class="search-element" id="categories-element">
+      <p>Do you know what type of recipe you want but haven't settled on a recipe? <br> Search by category here!</p>
+      <form class="search-option" id="category-search">
+        <select class="recipe-search" id="categories">
+          <option disabled selected>Choose a Category</option>
+        </select>
+        <button class="search-button" type="submit" id="category-button">Search</button>
+      </form>
+    </div>
     <hr>
-    <div class="search-option">
-      <p>Can't decide? Get a random recipe here!</p>
-      <button class="search-button" id="random">Random Recipe!</button>
+    <div class="search-element" id="random-element">
+      <div class="search-option">
+        <p>Can't decide? <br> Get a random recipe here!</p>
+        <button class="search-button" id="random">Random Recipe!</button>
+      </div>
     </div>
   </div>
   <hr>

@@ -41,15 +41,34 @@ body {
   margin: 10px;
 }
 
+.search-element {
+  /* border: solid black 2px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 25px;
+  margin-top: 25px;
+}
+
 #input, #categories {
-  width: 250px;
+  width: 65%;
   height: 30px;
+}
+
+#categories-element {
+  border-right: solid rgb(40, 50, 22) 1px;
+  border-left: solid rgb(40, 50, 22) 1px;
+  width: 33%;
+}
+
+#name-element, #random-element {
+  width: 33%;
 }
 
 .recipe-search {
   display: flex;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
   text-align: center;
   /* border: solid black 2px; */
 }
@@ -82,7 +101,7 @@ button:hover {
 }
 
 hr {
-  width: 90%;
+  display: none;
 }
 
 #random {
@@ -98,6 +117,8 @@ hr {
   flex-direction: column;
   max-width: 200px;
   margin: 15px;
+  padding: 15px;
+  /* background-color: rgb(147, 142, 96); */
 }
 
 .search-results {
@@ -107,7 +128,8 @@ hr {
   justify-content: space-around;
   align-items: flex-end;
   font-size: 20px;
-  /* border-top: solid grey 1px; */
+  margin-top: 25px;
+  padding-top: 25px;
 }
 
 h4 {
@@ -129,18 +151,6 @@ h4 {
   height: 200px;
 }
 
-@media only screen and (max-width: 500px) {
-  .image {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    max-width: 300px;
-  }
-  p {
-    font-size: 15px;
-  }
-}
 
 /* MODAL STYLING */
 .modal {
@@ -180,3 +190,50 @@ h4 {
   cursor: pointer;
 }
 /*https://www.w3schools.com/howto/howto_css_modals.asp */
+
+@media only screen and (max-width: 800px) {
+  .recipe-search {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    /* border: solid black 2px; */
+  }
+  #categories-element {
+    border: none;
+    width: auto;
+  }
+  hr {
+    width: 90%;
+    display: block;
+  }
+  #name-element, #random-element {
+    width: auto;
+  }
+
+@media only screen and (max-width: 500px) {
+  .search-element {
+    /* border: solid black 2px; */
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+  }
+
+  .image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+  }
+  p {
+    font-size: 15px;
+  }
+  .recipe-element {
+    /* border: solid black 2px; */
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    margin: 15px;
+  }
+}
