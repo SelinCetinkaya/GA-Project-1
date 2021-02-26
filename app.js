@@ -8,7 +8,6 @@ async function getRandomImage() {
     const randomImage = await axios.get(randomImageUrl)
     const appendImage = `<img id="header-image" src=${randomImage.data.image} alt="header-image"/>`
     document.querySelector('body').insertAdjacentHTML('afterbegin', appendImage)
-    // console.log(randomImage)
   } catch (err) {
     console.error(err)
   }
@@ -26,7 +25,6 @@ async function getRecipeName(input) {
     const response = await axios.get(nameEndpoint)
     const mealsArr = response.data.meals
     mealsArr.forEach(meal => {
-      // appendRecipe(meal.strMeal, meal.strMealThumb)
       appendRecipe(meal)
     });
     return response
@@ -34,7 +32,6 @@ async function getRecipeName(input) {
     console.error(err)
   }
 }
-// getRecipeName('spaghetti')
 
 function getNameValue(e) {
   e.preventDefault
@@ -52,15 +49,12 @@ nameForm.addEventListener('click', getNameValue)
 //Categories search dropdown
 //==========================================
 
-
 async function getCategories() {
   const categoriesUrl = 'https://www.themealdb.com/api/json/v1/1/categories.php'
   try {
     const response = await axios.get(categoriesUrl)
     const categoriesArray = response.data.categories
-    // console.log(response)
     optionValue(categoriesArray)
-    // console.log(categoriesArray)
   } catch (err) {
     console.error(err)
   }
@@ -69,12 +63,10 @@ getCategories()
 
 function optionValue(categoryList) {
   const dropdown = document.querySelector('#categories')
-  // console.log(dropdown)
   for (let i = 0; i < categoryList.length; i++) {
     const option = document.createElement('option')
     option.textContent = categoryList[i].strCategory
     getCategories.value = categoryList[i].strCategory
-    // console.log(categoryList[i].strCategory)
     dropdown.append(option)
   }
 }
@@ -104,6 +96,21 @@ async function getCategoryItems(category) {
 
 const categoryForm = document.querySelector('#category-search')
 categoryForm.addEventListener('submit', getCat)
+
+//========================= Modal stuff
+
+const modal = document.querySelector('#my-modal')
+const closeButton = document.querySelector('#close-button')
+
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+closeButton.onclick = function() {
+  modal.style.display = "none";
+}
 
 //=========================================
 //Random recipe button
@@ -137,48 +144,27 @@ randomButton.addEventListener('click', getRandom)
 //Append
 //==================================
 async function getFullRecipe(id) {
-  // console.log(id)
   const fullRecipeUrl = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
   try {
     const response = await axios.get(fullRecipeUrl)
-    // console.log(response)
-    return response.data.meals[0].strSource
+    return response.data.meals[0]
   } catch (err) {
     console.error(err)
   }
 }
 
-async function redirectToRecipe(meal) {
-  // console.log(meal.idMeal)
-  const source = meal.strSource || await getFullRecipe(meal.idMeal)
-  if (!source) {
-    alertFullRecipe(meal.idMeal)
-  } else {
-    const element = document.createElement('a')
-    element.setAttribute('target', '_blank')
-    element.setAttribute('href', source)
-    element.click()
-  }
-}
-
 async function appendRecipe(meal) {
-  // console.log(meal)
   const title = meal.strMeal
   const imgSRC = meal.strMealThumb
-  const el = document.createElement('div')
-  el.className = "recipe-element"
+  const id = meal.idMeal
   let recipe =
-    `<h4 class='title'>${title}</h4>
-    <img class='image' src="${imgSRC}" alt="recipe-image"/>`
-  el.insertAdjacentHTML('beforeend', recipe)
-  const moreInfoButton = document.createElement('button')
-  moreInfoButton.innerHTML = "View More"
-  moreInfoButton.className = 'view-more'
-  moreInfoButton.addEventListener('click', () => { redirectToRecipe(meal) })
-  el.append(moreInfoButton)
-  document.querySelector('.search-results').append(el)
+    `<div class="recipe-element">
+    <h4 class='title'>${title}</h4>
+    <img class='image' src="${imgSRC}" alt="recipe-image"/>
+    <button onclick="showFullRecipe(${id})">View Recipe</button>
+    </div>`
+  document.querySelector('.search-results').insertAdjacentHTML('beforeend', recipe)
 }
-
 
 //========================================
 //Remove
@@ -192,21 +178,24 @@ function removeRecipes() {
 }
 
 //=================================================
-//No Recipe Source
+//Modal Content
 //=================================================
 
-async function alertFullRecipe(id) {
-  const instructionsUrl = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
+async function showFullRecipe(id) {
   try {
-    const response = await axios.get(instructionsUrl)
-    const meal = response.data.meals[0]
+    const meal = await getFullRecipe(id)
     const name = meal.strMeal
     const instructions = meal.strInstructions
-    const recipe = `Oh no! It looks like there is no link for the ${name} recipe! Here are the recipe details. Bon appetit!
-Ingredients:
+    const source = meal.strSource
+    const recipe = `<h2>${name}</h2>Here are the recipe details. Bon appetit!
 ${getIngredientList(meal)}
-${instructions}`
-    alert(recipe)
+
+<br/>${instructions}
+<br/>${source ? `<a target='_blank' href='${source}'>show</a>` : 'source not available'}`
+    const modal = document.querySelector('#my-modal')
+    const content = document.querySelector('#recipe-content')
+    content.innerHTML = recipe
+    modal.style.display = "block";
   }
   catch (err) {
     console.error(err)
@@ -219,7 +208,7 @@ function getIngredientList(meal) {
     const ingredient = meal[`strIngredient${i + 1}`]
     const measurement = meal[`strMeasure${i + 1}`]
     if (ingredient && measurement) {
-      str = str.concat(`${measurement} ${ingredient} \n`)
+      str = str.concat(`<li>${ingredient} - ${measurement}</li>`)
     }
   }
   return str
