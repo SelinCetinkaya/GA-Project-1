@@ -89,7 +89,7 @@ Code snippet:
 |Feb 23| Project Approval / Create HTML, CSS, and JS files| Complete
 |Feb 24| API calls functioning, logging to console | Complete
 |Feb 25| API calls rendering to DOM / Basic CSS  | Complete
-|Feb 26| PostMVP / More Advanced CSS| Incomplete
+|Feb 26| PostMVP / More Advanced CSS| Complete
 |March 1| Presentations | Incomplete
 
 ## Priority Matrix
@@ -100,21 +100,35 @@ Code snippet:
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Adding Random Food Image | L | 3hrs| hrs | hrs |
-| Input Form | H | 3hrs| 3hrs | hrs |
-| Dropdown Menu | H | 3hrs| 2hrs | hrs |
-| Food Name API Call | H | 3hrs| 2hrs | hrs |
-| Food Category API Call | H | 4hrs| 2.5hrs | hrs |
-| Random Recipe button/API Call | H | 3hrs| 3hrs | hrs |
-| Append Recipe to DOM | H | 4hrs| 2.5hrs | hrs |
-| Basic CSS | H | 5hrs| 5hrs | hrs |
-| Responsive Design | H | 3hrs| hrs | hrs |
-| Advanced CSS / Animations/Transitions | M | 4hrs| 1hrs | hrs |
-| Clear Previous Results | M | 2hrs| 1hrs | hrs |
-| Total |  | 37hrs| hrs | hrs |
+| Adding Random Food Image | L | 3hrs| 2hrs | 2hrs |
+| Input Form | H | 3hrs| 3hrs | 3hrs |
+| Dropdown Menu | H | 3hrs| 2hrs | 2hrs |
+| Food Name API Call | H | 3hrs| 2hrs | 2hrs |
+| Food Category API Call | H | 4hrs| 5hrs | 5hrs |
+| Random Recipe button/API Call | H | 3hrs| 3hrs | 3hrs |
+| Append Recipe to DOM | H | 4hrs| 2.5hrs | 2.5hrs |
+| Basic CSS | H | 5hrs| 5hrs | 6hrs |
+| Responsive Design | H | 3hrs| 4hrs | 4hrs |
+| Advanced CSS / Animations/Transitions | M | 4hrs| 3hrs | 3hrs |
+| Clear Previous Results | M | 2hrs| 1.5hrs | 1.5hrs |
+| Total |  | 37hrs| 34hrs | 34hrs |
 
 ## Code Snippet
-
+```
+async function appendRecipe(meal) {
+  const title = meal.strMeal
+  const imgSRC = meal.strMealThumb
+  const id = meal.idMeal
+  let recipe =
+    `<div class="recipe-element">
+    <h4 class='title'>${title}</h4>
+    <img class='image' src="${imgSRC}" alt="recipe-image"/>
+    <button id="results-button" onclick="showFullRecipe(${id})">View Recipe</button>
+    </div>`
+  document.querySelector('.search-results').insertAdjacentHTML('beforeend', recipe)
+  document.querySelector('.search-results').scrollIntoView()
+}
+```
 
 ## Change Log
- Use this section to document what changes were made and the reasoning behind those changes.  
+ Instead of listing or expanding the recipe details on the page itself, I used a modal that opens when a button is clicked with all of the additional information. I thought this would be a visually more simple way to display the data.
