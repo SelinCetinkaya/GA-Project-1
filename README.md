@@ -114,6 +114,9 @@ Code snippet:
 | Total |  | 37hrs| 34hrs | 34hrs |
 
 ## Code Snippet
+
+I was really proud of being able to use a template literal to make this function look so clean. I originally was using document.querySelector and appending each individual item but changed it to this and am very happy with how it looks.
+
 ```
 async function appendRecipe(meal) {
   const title = meal.strMeal
