@@ -3,22 +3,27 @@
 /* ================================================= */
 
 header {
-  /* border: solid black 2px; */
-  /* background-color: #726782b6; */
+  display: flex;
 }
 
 h1 {
-  margin: 0;
   color: rgb(40, 50, 22);
   font-family: 'Oswald', sans-serif;
-  font-size: 50px;
+  font-size: 60px;
+  margin-left: 30px;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+h2 {
+  margin-left: 30px;
+  margin-top: 10px;
 }
 
 p {
   font-size: 20px;
   margin-top: 20px;
 }
-
 
 body {
   font-family: 'Mukta', sans-serif;
@@ -27,22 +32,20 @@ body {
 }
 
 #header-image {
-  max-height: 200px;
-  max-width: fit-content;
+  max-height: 110px;
+  max-width: auto;
+  display: inline;
   width: auto;
   height: auto;
-  /* margin: 50px; */
   justify-items: center;
-  display: none;
+  margin-top: 20px;
 }
 
 .search-option {
-  /* border: solid black 2px; */
   margin: 10px;
 }
 
 .search-element {
-  /* border: solid black 2px; */
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -70,7 +73,6 @@ body {
   justify-content: center;
   flex-direction: row;
   text-align: center;
-  /* border: solid black 2px; */
 }
 form {
   justify-content: center;
@@ -85,13 +87,26 @@ button {
   font-family: inherit;
 }
 
-button:hover {
-  background-color: rgb(156, 156, 195);
+#results-button {
+  background-color:  rgb(48, 57, 32);
+  cursor: pointer;
+  margin-top: 10px;
+  color: white;
+  border-radius: 5%;
+}
+
+#results-button:hover {
+  background-color: rgb(66, 79, 44)
+}
+
+.search-button:hover {
+  background-color: rgb(66, 79, 44);
   cursor: pointer;
 }
 
 .search-button {
-  background-color: rgb(194, 194, 239);
+  background-color: rgb(48, 57, 32);
+  color: whitesmoke;
   border-radius: 10%;
   border: solid rgb(177, 177, 177) 1px;
   font-size: 15px;
@@ -107,22 +122,20 @@ hr {
 #random {
   width: 150px;
 }
+
 /* ========================================================== */
 /* Search Results */
 /* ========================================================== */
 
 .recipe-element {
-  /* border: solid black 2px; */
   display: flex;
   flex-direction: column;
   max-width: 200px;
   margin: 15px;
   padding: 15px;
-  /* background-color: rgb(147, 142, 96); */
 }
 
 .search-results {
-  /* border: solid black 2px; */
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
@@ -139,20 +152,23 @@ h4 {
   flex-wrap: wrap;
   text-align: center;
   text-decoration: underline;
+  margin-bottom: 10px;
 }
 
 #input {
   margin-right: 5px;;
 }
 
-
 .image {
   width: 200px;
   height: 200px;
+  border-radius: 5%;
 }
 
-
 /* MODAL STYLING */
+/* Got this styling from */
+/*https://www.w3schools.com/howto/howto_css_modals.asp */
+
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -191,13 +207,16 @@ h4 {
 }
 /*https://www.w3schools.com/howto/howto_css_modals.asp */
 
+/* ======================================
+Media Queries
+====================================== */
+
 @media only screen and (max-width: 800px) {
   .recipe-search {
     display: flex;
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    /* border: solid black 2px; */
   }
   #categories-element {
     border: none;
@@ -213,7 +232,6 @@ h4 {
 
 @media only screen and (max-width: 500px) {
   .search-element {
-    /* border: solid black 2px; */
     display: flex;
     flex-direction: column;
     margin: 0;
@@ -226,11 +244,12 @@ h4 {
     flex-direction: column;
     max-width: 300px;
   }
+
   p {
     font-size: 15px;
   }
+
   .recipe-element {
-    /* border: solid black 2px; */
     display: flex;
     flex-direction: column;
     max-width: 300px;

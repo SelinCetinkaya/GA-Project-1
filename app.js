@@ -7,13 +7,12 @@ async function getRandomImage() {
   try {
     const randomImage = await axios.get(randomImageUrl)
     const appendImage = `<img id="header-image" src=${randomImage.data.image} alt="header-image"/>`
-    document.querySelector('body').insertAdjacentHTML('afterbegin', appendImage)
+    document.querySelector('header').insertAdjacentHTML('afterbegin', appendImage)
   } catch (err) {
     console.error(err)
   }
 }
 getRandomImage()
-
 
 //=========================================
 //Search by name 
@@ -80,7 +79,6 @@ function getCat(e) {
 
 async function getCategoryItems(category) {
   const categoryItemUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`
-  // const idUrl = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
   try {
     const response = await axios.get(categoryItemUrl)
     const categoriesArr = response.data.meals
@@ -92,25 +90,9 @@ async function getCategoryItems(category) {
   }
 }
 
-
 const categoryForm = document.querySelector('#category-search')
 categoryForm.addEventListener('submit', getCat)
 
-//========================= Modal stuff
-//https://www.w3schools.com/howto/howto_css_modals.asp
-
-const modal = document.querySelector('#my-modal')
-const closeButton = document.querySelector('#close-button')
-
-window.onclick = function (event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-
-closeButton.onclick = function() {
-  modal.style.display = "none";
-}
 
 //=========================================
 //Random recipe button
@@ -127,11 +109,8 @@ async function randomRecipe() {
   try {
     const response = await axios.get(randomUrl)
     const random = response.data.meals
-    // console.log(random)
     appendRecipe(random[0])
-    console.log(response)
     return response
-    // appendRecipe()
   } catch (err) {
     console.error(err)
   }
@@ -139,19 +118,26 @@ async function randomRecipe() {
 const randomButton = document.querySelector('#random')
 randomButton.addEventListener('click', getRandom)
 
+//========================= Modal
+//Got these functions from
+//https://www.w3schools.com/howto/howto_css_modals.asp
+
+const modal = document.querySelector('#my-modal')
+const closeButton = document.querySelector('#close-button')
+
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+closeButton.onclick = function() {
+  modal.style.display = "none";
+}
 
 //==================================
 //Append
 //==================================
-async function getFullRecipe(id) {
-  const fullRecipeUrl = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
-  try {
-    const response = await axios.get(fullRecipeUrl)
-    return response.data.meals[0]
-  } catch (err) {
-    console.error(err)
-  }
-}
 
 async function appendRecipe(meal) {
   const title = meal.strMeal
@@ -161,7 +147,7 @@ async function appendRecipe(meal) {
     `<div class="recipe-element">
     <h4 class='title'>${title}</h4>
     <img class='image' src="${imgSRC}" alt="recipe-image"/>
-    <button onclick="showFullRecipe(${id})">View Recipe</button>
+    <button id="results-button" onclick="showFullRecipe(${id})">View Recipe</button>
     </div>`
   document.querySelector('.search-results').insertAdjacentHTML('beforeend', recipe)
   document.querySelector('.search-results').scrollIntoView()
@@ -182,6 +168,16 @@ function removeRecipes() {
 //Modal Content
 //=================================================
 
+async function getFullRecipe(id) {
+  const fullRecipeUrl = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
+  try {
+    const response = await axios.get(fullRecipeUrl)
+    return response.data.meals[0]
+  } catch (err) {
+    console.error(err)
+  }
+}
+
 async function showFullRecipe(id) {
   try {
     const meal = await getFullRecipe(id)
@@ -189,10 +185,9 @@ async function showFullRecipe(id) {
     const instructions = meal.strInstructions
     const source = meal.strSource
     const recipe = `<h2>${name}</h2>Here are the recipe details. Bon appetit!
-${getIngredientList(meal)}
-
-<br/>${instructions}
-<br/>${source ? `<a target='_blank' href='${source}'>Show recipe source.</a>` : 'Source not available.'}`
+    ${getIngredientList(meal)}
+    <br/>${instructions}
+    <br/>${source ? `<a target='_blank' href='${source}'>Show recipe source.</a>` : 'Source not available.'}`
     const modal = document.querySelector('#my-modal')
     const content = document.querySelector('#recipe-content')
     content.innerHTML = recipe
